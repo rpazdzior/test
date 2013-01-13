@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+	  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Changements dans LHEO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css" media="screen">
+      @import url("layout.css");
+    </style>
+  </head>
+  <body>
+    <h1>Évolutions du langage LHÉO</h1>
+    
+	<h3>2.2.0</h3>
+	
+	<ul>
+		<li>Il est possible de mettre de 1 à 10 <code>code-public-vise</code> dans un resume-offre (LHEO-Index). [#2]</li>
+		<li>Ajout d'un élément <code>url-formation</code> et <code>url-action</code>. [#4]</li>
+		<li>Ajout d'un élément <code>etat-recrutement</code> dans <code>session</code>. [#6]</li>
+		<li>Ajout d'un élément <code>info-public-vise</code> dans <code>action</code>. [#8]</li>
+		<li>Ajout d'un élément <code>prix-total-TTC</code> dans <code>action</code>. [#9]</li>
+		<li><code>duree-indicative</code> passe à 150 caractères et a comme nouvel intitulé "<em>Informations sur le nombre d'heures</em>". Introduction des éléments <code>nombre-heures-centre</code>, <code>nombre-heures-entreprise</code> et <code>nombre-heures-total</code> dans <code>action</code>. [#10]</li>
+		<li>Suppression de <code>date-limite-inscription</code> et de  <code>date-inscription</code>. Création de <code>periode-inscription</code> et de <code>modalites-inscription</code> dans <code>session</code>. Déplacement de <code>adresse-inscription</code> de <code>action</code> vers <code>session</code>. [#11]</li>
+		<li>Ajout d'attributs <code>datecrea</code> et <code>datemaj</code> dans les éléments: <code>lheo</code>, <code>formation</code>, <code>action</code>, <code>session</code>, <code>lheo-index</code>, <code>resume-offre</code>, <code>resume-organisme</code>. [#15]</li>
+		<li>L'attribut <code>ref</code> contenant la version du Formacode devient obligatoire pour les éléments faisant référence à ce dernier (<code>code-FORMACODE</code>, <code>code-public-vise</code> et <code>code-modalite-pedagogique</code>). [#16]</li>
+		<li>Nouvelle version du glossaire (septembre 2012).</li>
+	</ul>
+	
+    <h3>2.1.0</h3>
+    <pre>
+    Ajout d'un attribut `idref` de type IDREF à tous les élements.
+    Correction du type de `id` dans les schéma W3C.
+    </pre>
+    
+    <h3>2.0.1</h3>
+    <pre>
+      L'élément 'session' dans 'resume-offre' a maintenant un cardinalité maximale infinie. Cet cardinalité était mal définie dans la version précédente (2.0.0).
+    </pre>
+
+    <h3>2.0.0</h3>
+<pre>
+- Passage de `conditions-specifiques` de 300 à 3000.
+- Passage de `modalite-alternance` de 150 à 3000.
+- Passage de `modalites-recrutement` de 100 à 3000.
+- Passage de `resultats-attendus` de 200 à 3000.
+- Passage de `rythme-formation` de 50 à 3000.
+- Passage de `urlweb` de 200 à 400.
+- Passage de `courriel` de 80 à 160.
+- On peut préciser dorénavant jusqu'à 5 éléments `certification`.
+- Ajout d'un élément `prenom` de 0 à 50 caractères.
+- Ajout d'un élément `civilite` de 0 à 50 caractères.
+- Ajout des éléments `prenom` et `civilite` dans `coordonnees` (optionnels).
+- Règle de gestion pour le FORMACODE principal dans `codes-FORMACODE`.
+- Règle de gestion pour `code-niveau-entree`.
+- `modalite-alternance` devient `modalites-alternance`.
+- `modalite-entrees-sorties` devient `modalites-entrees-sorties`.
+- Redéfinition de la table `dict-modalites-enseignement` (anciennement `dict-FOAD`)
+        0.      Formation entièrement présentielle
+        1.      Formation mixte
+        2.      Formation entièrement à distance
+- Règle de gestion pour `code-CERTIFINFO`.
+- Suppression de l'élément `remuneration-possible` (dans `conditions-administratives` et `resume-offre`).
+- Ajout d'un élément `geolocalisation`
+- Ajout d'un élément `latitude`
+- Ajout d'un élément `longitude`
+- Ajout d'un attribut `tag` dans tous les éléments
+- Renommage de `lheo-leger` en `lheo-index`
+- Renommage de `intitule-action` en `intitule-formation`
+- Nouvelle doc pour "hébergement"
+- Nouvelle doc pour "restauration"
+- Nouvelle doc pour "transport"
+- Ajout d'un élément `restauration`
+- Ajout d'un élément `frais-restants`
+- Ajout d'un élément `potentiel` (organismes)
+- Ajout d'un élément `contact-formateur`
+- Renommage `contact-offre` en `contact-formation`
+- Renommage ancien `contact-formation` en `contact-formation-resume`
+- Ajout d'un élément `langue-formation` (code ISO 639-1)
+- Ajout d'un nouvel élément `code-modalite-pedagogique`
+- Ajout d'un nouvel élément `organisme-financeur`
+- Renommage `offre-formation` en `formation`
+- Renommage `action-formation` en `action`
+- Une formation peut contenir de 1 à N actions
+- Réorganisation des éléments entre action et formation
+- Déplacement de `identifiant-module` dans `formation`
+- Suppression de l'élément `module`
+- Suppression de l'élément `organismes`
+- Suppression de l'élément `organismes-financeurs`
+- Suppression de l'élément `organisation-pedagogique`
+- Suppression de l'élément `organisation-administrative`
+- Suppression de l'élément `organisation-materielle`
+- Suppression de l'élément `conditions-pedagogiques`
+- Suppression de l'élément `conditions-administratives`
+- Suppression de l'élément `modalites-acces`
+- Suppression de l'élément `organisation-formation`
+- Suppression de l'élément codes-FORMACODE
+- Suppression de l'élément codes-NSF
+- Suppression de l'élément codes-ROME
+- Suppression de l'élément codes-public-vise
+- Suppression de l'élément lieu-date-inscription
+- Elements extras dans toutes les séquences
+- La table des publics est dorénavant externe
+</pre>
+  </body>
+</html>
